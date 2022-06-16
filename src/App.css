@@ -1,0 +1,187 @@
+/* PAGE */
+
+html, body, #root {
+  margin: 0;
+  width:100%;
+  height: 100%;
+  background-color:rgb(245, 228, 238) ;
+}
+
+h1, h2, h3 {
+  font-family: 'Oswald', 'Arial Narrow', sans-serif;
+}
+
+code {
+  display: block;
+  margin: 20px 0 15px 0;
+  padding: 10px;
+}
+
+.header {
+  text-align: center;
+}
+
+.btn-primary {
+  margin: 2%;
+}
+
+#landform{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+.pure-form input[type="text"]:focus {
+  border-color: #0c1a2b;
+}
+
+/* NAVBAR */
+
+.navbar {
+  position: relative;
+  width: 100%;
+  height: 50%;
+  margin-bottom: 0;
+  background-color: #070200;
+  z-index: 0;
+  border: 0;
+  font-size: 14px !important;
+  line-height: 2.0 !important;
+  letter-spacing: 2px;
+  border-radius: 0;
+  font-family: Montserrat, sans-serif;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+#bmsce{
+  font-size: large;
+}
+.navbar-expand-lg .navbar-collapse{
+  flex-direction: row-reverse;
+  flex-wrap: nowrap;
+}
+
+
+
+
+.navbar li a, .navbar .navbar-brand {
+  color: rgb(248, 246, 244) !important;
+  font-size: medium;
+}
+.navbar-nav li a:hover, .navbar-nav li.active a {
+  color: #180d04 !important;
+  background-color: #fff !important;
+}
+.navbar-default .navbar-toggle {
+  border-color: transparent;
+  color: #fff !important;
+}
+
+.jumbotron {
+  padding: 100px 25px;
+  font-family: Montserrat, sans-serif;
+}
+
+.driverForm {
+  align-items: center;
+  border: 2px solid #233e5e;
+  border-radius: 2%;
+  flex-direction: column;
+  padding: 3%;
+}
+
+.card {
+  border-radius: 5%;
+}
+
+.signup{
+  border: auto;
+  margin:auto;
+  padding: 5%;
+}
+
+.container{
+  margin-left: 0px; 
+   margin-right: 0px;
+  width: 100%;
+  max-width:none;
+  height: 100%;
+  font-size: large;
+
+}
+
+
+#info {
+text-align: center;
+}
+#main {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.fill-window {
+  z-index: -1;
+  height: 100%;
+  max-width: none;
+  max-height: fit-content;
+  left: 0;
+  width: 100%;
+  padding: 100px 20px; 
+}
+
+
+#ride-form {
+ background-color: transparent; 
+ padding: 5px;
+ border: 2px solid;
+ border-radius: 25px;
+}
+#ride-form:hover {
+  box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+}
+
+.about-section {
+  padding: 30px;
+  background-color: #474e5d;
+  color: white;
+}
+
+#main{
+  margin-left: 0;
+  margin-right: 0;
+  width:100%;
+  max-width: none;
+ 
+}
+#contact-us{
+  text-align: center;
+  color:#fff
+  
+}
+.about-section{
+  background-color: #070200;
+}
+.row1{
+  background-image: url('./img/txt11.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.page-section {
+  padding: 6rem 0;
+}
+.page-section h2.section-heading, .page-section .section-heading.h2 {
+  font-size: 2.5rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+.page-section h3.section-subheading, .page-section .section-subheading.h3 {
+  font-size: 1rem;
+  font-weight: 400;
+  font-style: italic;
+  font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  margin-bottom: 4rem;
+}
+
+
