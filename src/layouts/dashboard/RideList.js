@@ -105,7 +105,7 @@ class RideList extends Component {
         <Link to={`/details/${this.state.rideshares.length-1}`}>Confirm passenger</Link>
         )
     }else 
-    if (condition) {
+    if (condition ) {
       return (
         <button className='btn btn-primary' disabled>Ride Picked Up</button>
       )
@@ -115,7 +115,65 @@ class RideList extends Component {
       )
     }
   }
-
+  currRide(){
+    let web3 = store.getState().web3.web3Instance
+    if(this.state.rideshares.at(-1)[2]["c"][0]>0){
+     return(<div className="col">
+     <p>
+       <h2>Current Ride</h2>
+       <div className='row'>
+         <div className='col'>
+           <ul className="list-group">
+             <li className="list-group-item d-flex justify-content-between align-items-start">
+               <div className="ms-2 me-auto">
+                 <div className="fw-bold">Account Address</div>
+                 {this.state.rideshares.at(-1)[0]}
+               </div>
+             </li>
+             <li className="list-group-item d-flex justify-content-between align-items-start">
+               <div className="ms-2 me-auto">
+                 <div className="fw-bold">Cost</div>
+                 {web3.fromWei(this.state.rideshares.at(-1)[1], "ether" ).toNumber()}
+               </div>
+             </li>
+             <li className="list-group-item d-flex justify-content-between align-items-start">
+               <div className="ms-2 me-auto">
+                 <div className="fw-bold">Capacity</div>
+                 {this.state.rideshares.at(-1)[2]["c"][0]}
+               </div>
+             </li>
+             <li className="list-group-item d-flex justify-content-between align-items-start">
+               <div className="ms-2 me-auto">
+                 <div className="fw-bold">From</div>
+                 {this.state.rideshares.at(-1)[3]}
+               </div>
+             </li>
+             <li className="list-group-item d-flex justify-content-between align-items-start">
+               <div className="ms-2 me-auto">
+                 <div className="fw-bold">To</div>
+                 {this.state.rideshares.at(-1)[4]}
+               </div>
+             </li>
+             <li className="list-group-item d-flex justify-content-between align-items-start">
+               <div className="ms-2 me-auto">
+                 <div className="fw-bold">Confirm </div>
+                 {this.rideshareButton(this.state.passengers.indexOf(web3.eth.accounts[0]) >-1 , this.state.rideshares.at(-1)[1],this.state.rideshares.length-1)}
+               </div>
+             </li>
+             {
+               this.check()
+               }
+           </ul>
+         </div>
+       </div>
+     </p>
+   </div>) 
+    }else{
+      return (<div className="col">
+        <p>No ride available</p>
+      </div>)
+    }
+  }
   render() {
     let web3 = store.getState().web3.web3Instance
     if (this.state.rideshareLoading) {
@@ -123,62 +181,14 @@ class RideList extends Component {
         <p>Loading</p>
       )
     } else {
-      if(this.state.rideshares.length!==0   & this.state.rideshares.at(-1)[2]["c"][0]>0){
+      if(this.state.rideshares.length!==0  ){
         
       return(
         <div className="container fluid">
           <div className="row">
-            <div className="col">
-              <p>
-                <h2>Current Ride</h2>
-                <div className='row'>
-                  <div className='col'>
-                    <ul className="list-group">
-                      <li className="list-group-item d-flex justify-content-between align-items-start">
-                        <div className="ms-2 me-auto">
-                          <div className="fw-bold">Account Address</div>
-                          {this.state.rideshares.at(-1)[0]}
-                        </div>
-                      </li>
-                      <li className="list-group-item d-flex justify-content-between align-items-start">
-                        <div className="ms-2 me-auto">
-                          <div className="fw-bold">Cost</div>
-                          {web3.fromWei(this.state.rideshares.at(-1)[1], "ether" ).toNumber()}
-                        </div>
-                      </li>
-                      <li className="list-group-item d-flex justify-content-between align-items-start">
-                        <div className="ms-2 me-auto">
-                          <div className="fw-bold">Capacity</div>
-                          {this.state.rideshares.at(-1)[2]["c"][0]}
-                        </div>
-                      </li>
-                      <li className="list-group-item d-flex justify-content-between align-items-start">
-                        <div className="ms-2 me-auto">
-                          <div className="fw-bold">From</div>
-                          {this.state.rideshares.at(-1)[3]}
-                        </div>
-                      </li>
-                      <li className="list-group-item d-flex justify-content-between align-items-start">
-                        <div className="ms-2 me-auto">
-                          <div className="fw-bold">To</div>
-                          {this.state.rideshares.at(-1)[4]}
-                        </div>
-                      </li>
-                      <li className="list-group-item d-flex justify-content-between align-items-start">
-                        <div className="ms-2 me-auto">
-                          <div className="fw-bold">Confirm </div>
-                          {this.rideshareButton(this.state.passengers.indexOf(web3.eth.accounts[0]) === -1, this.state.rideshares.at(-1)[1],this.state.rideshares.length-1)}
-                        </div>
-                      </li>
-                      {
-                        this.check()
-                        }
-                    </ul>
-                  </div>
-                </div>
-              </p>
-            </div>
+            {this.currRide()}
           </div>
+          
           <div className='row'>
             <div className='col'>
               <div className="row">
