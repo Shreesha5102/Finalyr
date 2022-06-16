@@ -60,8 +60,7 @@ class RideList extends Component {
               var tempArr = _this.state.rideshares;
               let tempRideshares = tempArr.concat([result]);
               _this.setState({rideshares: tempRideshares})
-              console.log('test2');
-              console.log(_this.state.rideshares);
+              
               // debugger
               // return result;
               // return dispatch(loginUser())
@@ -71,16 +70,22 @@ class RideList extends Component {
               var tempArr = _this.state.passengers;
               let tempPassengers = tempArr.concat([result]);
               _this.setState({passengers: tempPassengers})
+              console.log('test2');
+              console.log(_this.state.passengers);
             })
-            // Attempt to sign up user.
             .catch(function(result) {
               // If error...
             })
+            // console.log(_this.state.passengers.at(i))
+            // rideshareInstance.getPassengerRideState.call(i,_this.state.passengers.get(i)).then(function(res){
+            //   console.log(res)
+            // })
           }
           _this.setState({rideshareLoading: false})
         })
       })
     })
+    
   }
   check(){
     let web3 = store.getState().web3.web3Instance
@@ -95,8 +100,6 @@ class RideList extends Component {
   }
   rideshareButton(condition, bigNum,i) {
     let web3 = store.getState().web3.web3Instance
-    console.log('passengers');
-    console.log(this.state.passengers);
     if(this.state.driveracc===web3.currentProvider.selectedAddress){
       return (
         <Link to={`/details/${this.state.rideshares.length-1}`}>Confirm passenger</Link>
@@ -115,7 +118,6 @@ class RideList extends Component {
 
   render() {
     let web3 = store.getState().web3.web3Instance
-
     if (this.state.rideshareLoading) {
       return (
         <p>Loading</p>
@@ -165,7 +167,7 @@ class RideList extends Component {
                       <li className="list-group-item d-flex justify-content-between align-items-start">
                         <div className="ms-2 me-auto">
                           <div className="fw-bold">Confirm </div>
-                          {this.rideshareButton(this.state.passengers.indexOf(web3.eth.accounts[0]) > -1, this.state.rideshares.at(-1)[1],this.state.rideshares.length-1)}
+                          {this.rideshareButton(this.state.passengers.indexOf(web3.eth.accounts[0]) === -1, this.state.rideshares.at(-1)[1],this.state.rideshares.length-1)}
                         </div>
                       </li>
                       {
