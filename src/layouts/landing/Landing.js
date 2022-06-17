@@ -115,8 +115,6 @@ class Landing extends Component {
                         </div>
                     </div>
 
-                     <a href="https://docs.google.com/presentation/d/1GEk0WUQVV7MmEzW9SoIgHdv9bpIwM6PBS8u5RgCgunk/edit#slide=id.p">
-            <br></br><button className="btn btn-secondary btn-lg">Know More!!</button></a>
           </div>
 
 
@@ -129,9 +127,15 @@ class Landing extends Component {
 
          <div className='row'>
           <div className="about-section">
-           <h1 id="contact-us">Contact US!</h1>
-            <p>.</p>
-           <p id="info">Developed by Shashank,Shreesha,Swaroop</p>
+       <p>
+
+
+
+        
+       </p>
+           {/* <h1 id="contact-us">Contact US!</h1>
+            <p>.</p> */}
+           <p id="info">Developed by Team Manoj</p>
           </div>
        </div>
 

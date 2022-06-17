@@ -100,6 +100,9 @@ class RideList extends Component {
   }
   rideshareButton(condition, bigNum,i) {
     let web3 = store.getState().web3.web3Instance
+    // console.log("----------------------");
+    // console.log(this.state.passengers.at(-1).indexOf(web3.eth.accounts[0]) );
+    // console.log("----------------------");
     if(this.state.driveracc===web3.currentProvider.selectedAddress){
       return (
         <Link to={`/details/${this.state.rideshares.length-1}`}>Confirm passenger</Link>
@@ -117,7 +120,7 @@ class RideList extends Component {
   }
   currRide(){
     let web3 = store.getState().web3.web3Instance
-    if(this.state.rideshares.at(-1)[2]["c"][0]>0){
+    if(this.state.rideshares.at(-1)[2]["c"][0]>=0){
      return(<div className="col">
      <p>
        <h2>Current Ride</h2>
@@ -157,7 +160,7 @@ class RideList extends Component {
              <li className="list-group-item d-flex justify-content-between align-items-start">
                <div className="ms-2 me-auto">
                  <div className="fw-bold">Confirm </div>
-                 {this.rideshareButton(this.state.passengers.indexOf(web3.eth.accounts[0]) >-1 , this.state.rideshares.at(-1)[1],this.state.rideshares.length-1)}
+                 {this.rideshareButton(this.state.passengers.at(-1).indexOf(web3.eth.accounts[0]) !==-1 , this.state.rideshares.at(-1)[1],this.state.rideshares.length-1)}
                </div>
              </li>
              {

@@ -29,7 +29,7 @@ export function confirmPassengersMet(ride_number, passengers, gps_location) {
         rideshare.deployed().then(function(instance) {
           rideshareInstance = instance
 
-          let new_passengers = passengers.split(",");
+          let new_passengers = passengers.split("\n");
 
           console.log(new_passengers);
 
