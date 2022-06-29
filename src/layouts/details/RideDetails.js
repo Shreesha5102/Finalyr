@@ -5,6 +5,7 @@ import JoinRideContainer from '../../rideshare/ui/joinride/JoinRideContainer'
 import ConfirmDriverMetContainer from '../../rideshare/ui/confirmDriverMet/ConfirmDriverMetContainer'
 import ConfirmPassengersMetContainer from '../../rideshare/ui/confirmPassengersMet/ConfirmPassengersMetContainer'
 import ArrivedContainer from '../../rideshare/ui/arrived/ArrivedContainer'
+import CancelContainer from '../../rideshare/ui/cancel/CancelContainer'
 import { Link } from 'react-router'
 
 const contract = require('truffle-contract')
@@ -57,7 +58,6 @@ class RideDetails extends Component {
             _this.setState({isPassenger: true});
             rideshareInstance.getPassengerRideState(_this.props.rideId, web3.eth.accounts[0])
             .then(function(result) {
-              console.log(result,"this is passenger states");
               result=s[result]
               _this.setState({passengerState: result})
             })
@@ -106,10 +106,13 @@ class RideDetails extends Component {
 
       if (isPassenger) {
         let confirmDriverMet;
-        if (passengerState == "initial") {
+        let cancelJoin;
+        if (passengerState === "initial") {
           confirmDriverMet = <ConfirmDriverMetContainer ride_number={rideId}/>;
-        } else if (passengerState == "enRoute") {
+        } else if (passengerState === "enRoute") {
           confirmDriverMet = <ArrivedContainer ride_number={rideId} />
+          // cancelJoin = <CancelContainer ride_number={rideId}/>
+          cancelJoin=<button className="btn btn-primary" >Cancel</button>
         }
 
         return(
@@ -121,6 +124,8 @@ class RideDetails extends Component {
                 <p>Current state: {passengerState}</p>
 
                 {confirmDriverMet}
+                <b></b>
+                {cancelJoin}
               </div>
             </div>
           </main>

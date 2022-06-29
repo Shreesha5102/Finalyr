@@ -1,0 +1,23 @@
+import { connect } from 'react-redux'
+import Cancel from './Cancel'
+import { cancel } from './CancelActions'
+
+const mapStateToProps = (state, ownProps) => {
+  return {}
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onArrivedFormSubmit: (ride_number) => {
+      console.log("from list method",ride_number)
+      dispatch(cancel(ride_number))
+    }
+  }
+}
+
+const CancelContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Cancel)
+
+export default CancelContainer

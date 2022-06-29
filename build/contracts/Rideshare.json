@@ -16676,12 +16676,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x6f97F2cf42f89858dfad5c6b707d1FBcDa613d3D",
-      "transactionHash": "0x622ced393ac3df5849ae18cf7b0cce665e9fb7284aa341b678254c22eb4d305f"
+      "address": "0xc4E5591b3965D35F9aE9a80e349D353DCf55C688",
+      "transactionHash": "0xaaad9b46bfdf8000c037df40083bfbcec27270292c6a7a73a979d4af3af4df7d"
     }
   },
   "schemaVersion": "3.4.7",
-  "updatedAt": "2022-06-16T09:05:28.709Z",
+  "updatedAt": "2022-06-17T17:53:34.976Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}
